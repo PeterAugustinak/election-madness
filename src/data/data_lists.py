@@ -43,7 +43,6 @@ class Data:
         for answers_lst in self.answers_lst_dict:
             return [answers_lst for answers_lst in answers_lst][1:]
 
-
     # PRINTING METHODS
     def print_list_of_parties(self):
         for num, party in enumerate(self.list_of_parties(), start=1):
@@ -99,6 +98,3 @@ class Data:
         except ValueError:
             print("Zadaná hodnota nie je číslo.")
             self.pick_key(key_name, key_list)
-
-# data = Data('vol_kal.csv')
-# data.print_results_by_specific_statement()
