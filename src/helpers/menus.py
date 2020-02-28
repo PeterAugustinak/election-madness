@@ -37,14 +37,30 @@ class Menus:
         self.main_menu()
 
     def _main_menu_evaluate_selection(self, user_selection):
-        if user_selection == '1': return self.questionaire.initialize()
-        if user_selection == '2': return self.data.print_list_of_parties()
-        if user_selection == '3': return self.data.print_list_of_statements()
-        if user_selection == '4': return self.data.print_results_by_specific_party()
-        if user_selection == '5': return self.data.print_results_by_specific_statement()
-        if user_selection == '6': return self.data.print_results_by_parties()
-        if user_selection == '7': return self.data.print_results_by_statement()
-        if user_selection == '8': return self._credits()
+        if user_selection == '1':
+            clear_screen()
+            return self.questionaire.initialize()
+        if user_selection == '2':
+            clear_screen()
+            return self.data.print_list_of_parties()
+        if user_selection == '3':
+            clear_screen()
+            return self.data.print_list_of_statements()
+        if user_selection == '4':
+            clear_screen()
+            return self.data.print_results_by_specific_party()
+        if user_selection == '5':
+            clear_screen()
+            return self.data.print_results_by_specific_statement()
+        if user_selection == '6':
+            clear_screen()
+            return self.data.print_results_by_parties()
+        if user_selection == '7':
+            clear_screen()
+            return self.data.print_results_by_statement()
+        if user_selection == '8':
+            clear_screen()
+            return self._credits()
         if user_selection == '9':
             print()
             print("DÚFAM, ŽE TENTO PROGRAM TI POMOHOL V ROZHODOVANÍ! :)")
