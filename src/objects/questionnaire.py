@@ -13,10 +13,13 @@ class Questionnaire:
         self.parties = self.data.list_of_parties()
         self.list_of_answers = self.data.list_of_anwsers()
 
-    def initialize(self, current_statement_position=0):
+    def initialize(self):
+        """Initialize of questionnaire."""
+        self._questionnaire_description()
+        self.start()
+
+    def start(self, current_statement_position=0):
         """Start of questionnaire."""
-        if current_statement_position == 0:
-            self._questionnaire_description()
         print()
         statement = self._get_statement_or_end(self.statements, current_statement_position)
         if statement:
@@ -94,9 +97,9 @@ class Questionnaire:
         if user_answer:
             self._compare_answer(current_statement_position, user_answer)
             current_statement_position += 1
-            self.initialize(current_statement_position)
+            self.start(current_statement_position)
         else:
-            self.initialize(current_statement_position)
+            self.start(current_statement_position)
 
     def _compare_answer(self, current_statement, user_answer):
         match_lst = []
