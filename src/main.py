@@ -6,9 +6,10 @@ def main():
     menu = Menus()
 
     clear_screen()
-    print("=======================================================================")
-    print("VITAJ V NAJDOKONALEJŠEJ VOLEBNEJ KALKULAČKE PRE PARLAMENTNÉ VOĽBY 2020!")
-    print("=======================================================================")
+    print("==================================")
+    print("* VITAJ V ELECTION MADNESS 2020! *")
+    print("najdokonalejšia volebná kalkulačka")
+    print("==================================")
     print()
     menu.main_menu()
 

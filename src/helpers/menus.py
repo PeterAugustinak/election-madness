@@ -22,7 +22,8 @@ class Menus:
         print(" (5) ZOZNAM ODPOVEDÍ PRE KONKRÉTNU OTÁZKU")
         print(" (6) ZOZNAM VŠETKÝCH ODPOVEDÍ PODĽA STRANY")
         print(" (7) ZOZNAM VŠETKÝCH ODPOVEDÍ PODĽA OTÁZKY")
-        print(" (8) UKONČIŤ PROGRAM")
+        print(" (8) CREDITS")
+        print(" (9) UKONČIŤ PROGRAM")
         print()
 
         self._main_menu_selection()
@@ -43,7 +44,8 @@ class Menus:
         if user_selection == '5': return self.data.print_results_by_specific_statement()
         if user_selection == '6': return self.data.print_results_by_parties()
         if user_selection == '7': return self.data.print_results_by_statement()
-        if user_selection == '8':
+        if user_selection == '8': return self._credits()
+        if user_selection == '9':
             print()
             print("DÚFAM, ŽE TENTO PROGRAM TI POMOHOL V ROZHODOVANÍ! :)")
             sys.exit()
@@ -51,7 +53,9 @@ class Menus:
             print(" Vyberaj z možností menu zadaním číslovky 1-8!")
             return self._main_menu_selection()
 
-
-
-
-
+    @staticmethod
+    def _credits():
+        print()
+        print("ELECTION MADNESS")
+        print("verzia: 1.0. (2020/02/28)")
+        print("autor: Peter A.")
