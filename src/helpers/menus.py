@@ -15,7 +15,7 @@ class Menus:
     def main_menu(self):
         print('HLAVNÉ MENU:')
         print()
-        print(" (1) SPUSTiŤ VOLEBNÚ KALKULAČKU!")
+        print(" (1) SPUSTIŤ VOLEBNÚ KALKULAČKU!")
         print(" (2) ZOZNAM KANDIDUJÚCICH STRÁN")
         print(" (3) ZOZNAM OTÁZOK")
         print(" (4) ZOZNAM ODPOVEDÍ PRE KONKRÉTNU STRANU")

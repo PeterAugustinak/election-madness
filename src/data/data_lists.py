@@ -1,6 +1,6 @@
 import csv
 from collections import defaultdict
-import sys
+
 
 class Data:
 
@@ -9,7 +9,8 @@ class Data:
     answers_lst_dict = []
 
     def __init__(self):
-        self._csv_reader('..\\src\\data\\vol_kal.csv')
+        self._csv_reader('vol_kal.csv')
+        # self._csv_reader('..\\src\\data\\vol_kal.csv')
 
     @classmethod
     def _csv_reader(cls, source):
@@ -61,13 +62,6 @@ class Data:
                 print(f"{statement}: {answer.upper()}")
             print()
 
-    def print_results_by_statement(self):
-        for statement, answers in zip(self.list_of_statements(), self.list_of_anwsers()):
-            print(f"ZOZNAME ODPOVEDÍ STRÁN PRE VÝROK '{statement.upper()}'")
-            for party, answer in zip(self.list_of_parties(), answers):
-                print(f"{party}: {answer}")
-            print()
-
     def print_results_by_specific_party(self):
         self.print_list_of_parties()
         party_num = self.pick_key('STRANU', self.list_of_parties())
@@ -77,6 +71,17 @@ class Data:
         print(f"ZOZNAME ODPOVEDÍ PRE STRANU '{party.upper()}'")
         for statement, answer in zip(self.list_of_statements(), self.list_of_anwsers()[party_num]):
             print(f" {statement}: {answer.upper()}")
+
+    def print_results_by_statement(self):
+        for statement, i in zip(self.list_of_statements(), range(self.len_of_statements())):
+            print(f"ZOZNAME ODPOVEDÍ STRÁN PRE VÝROK '{statement.upper()}'")
+            for party, answers in zip(self.list_of_parties(), self.list_of_anwsers()):
+                print(party, answers[i])
+            print()
+            # print(f"ZOZNAME ODPOVEDÍ STRÁN PRE VÝROK '{statement.upper()}'")
+            # for party, answer in zip(self.list_of_parties(), answers):
+            #     print(f"{party}: {answer.upper()}")
+            # print()
 
     def print_results_by_specific_statement(self):
         self.print_list_of_statements()
@@ -102,3 +107,6 @@ class Data:
         except ValueError:
             print("Zadaná hodnota nie je číslo.")
             return self.pick_key(key_name, key_list)
+
+data = Data()
+data.print_results_by_statement()
