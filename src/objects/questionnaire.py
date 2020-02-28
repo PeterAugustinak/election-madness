@@ -60,7 +60,7 @@ class Questionnaire:
         sorted_user_chart = {party: results for party, results in sorted(self.user_chart.items(),
                                                                          key=lambda item: item[1][1], reverse=True)}
         print()
-        print("FINÁLNE PORADIE: STRANA  [POČET ZHODNÝCH ODPOVEDÍ / CELKOVÉ SKÓRE:")
+        print("FINÁLNE PORADIE: STRANA  [POČET ZHODNÝCH ODPOVEDÍ / CELKOVÉ SKÓRE]:")
         for rank, (party, results) in enumerate(sorted_user_chart.items(), start=1):
             # results[0] - total matches, results[1] - total score
             print(f" {rank}. {party} [{results[0]} / {results[1]}]")
