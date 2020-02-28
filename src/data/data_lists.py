@@ -76,12 +76,8 @@ class Data:
         for statement, i in zip(self.list_of_statements(), range(self.len_of_statements())):
             print(f"ZOZNAME ODPOVEDÍ STRÁN PRE VÝROK '{statement.upper()}'")
             for party, answers in zip(self.list_of_parties(), self.list_of_anwsers()):
-                print(party, answers[i])
+                print(party, answers[i].upper())
             print()
-            # print(f"ZOZNAME ODPOVEDÍ STRÁN PRE VÝROK '{statement.upper()}'")
-            # for party, answer in zip(self.list_of_parties(), answers):
-            #     print(f"{party}: {answer.upper()}")
-            # print()
 
     def print_results_by_specific_statement(self):
         self.print_list_of_statements()
