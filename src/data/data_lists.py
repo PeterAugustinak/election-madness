@@ -1,7 +1,6 @@
 import csv
 from collections import defaultdict
-from os import system
-
+import sys
 
 class Data:
 
@@ -9,9 +8,8 @@ class Data:
     statements_dict = []
     answers_lst_dict = []
 
-    def __init__(self, file):
-        self.source = f'..\..\{file}'
-        self._csv_reader(self.source)
+    def __init__(self):
+        self._csv_reader('..\\src\\data\\vol_kal.csv')
 
     @classmethod
     def _csv_reader(cls, source):
@@ -43,6 +41,9 @@ class Data:
         for answers_lst in self.answers_lst_dict:
             return [answers_lst for answers_lst in answers_lst][1:]
 
+    def len_of_statements(self):
+        return len(self.list_of_statements())
+
     # PRINTING METHODS
     def print_list_of_parties(self):
         for num, party in enumerate(self.list_of_parties(), start=1):
@@ -72,7 +73,8 @@ class Data:
         party_num = self.pick_key('STRANU', self.list_of_parties())
         party = self.list_of_parties()[party_num]
 
-        print(f"ZOZNAME ODPOVEDÍ PRE STRANU {party.upper()}")
+        print()
+        print(f"ZOZNAME ODPOVEDÍ PRE STRANU '{party.upper()}'")
         for statement, answer in zip(self.list_of_statements(), self.list_of_anwsers()[party_num]):
             print(f" {statement}: {answer.upper()}")
 
@@ -81,20 +83,22 @@ class Data:
         statement_num = self.pick_key('VÝROK', self.list_of_statements())
         statement = self.list_of_statements()[statement_num]
 
-        print(f"ZOZNAME ODPOVEDÍ STRÁN PRE VÝROK '{statement.upper()}'")
+        print()
+        print(f"ZOZNAM ODPOVEDÍ STRÁN PRE VÝROK '{statement.upper()}'")
 
         for party, answers in zip(self.list_of_parties(), self.list_of_anwsers()):
             print(f" {party}: {answers[statement_num].upper()}")
 
     def pick_key(self, key_name, key_list):
         max_num = len(key_list)
+        print()
         picked_key = input(f"Vyber si {key_name.lower()} zadaním 1-{max_num}: ")
         try:
             if int(picked_key) not in range(1, max_num+1):
                 print(f"Neexistujúce číslo pre {key_name.lower()}")
-                self.pick_key(key_name, key_list)
+                return self.pick_key(key_name, key_list)
             else:
                 return int(picked_key)-1
         except ValueError:
             print("Zadaná hodnota nie je číslo.")
-            self.pick_key(key_name, key_list)
+            return self.pick_key(key_name, key_list)
