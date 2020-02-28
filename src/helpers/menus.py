@@ -1,5 +1,6 @@
 # standard library imports
 import sys
+import time
 
 # local library imports
 from src.helpers.clear_screen import clear_screen
@@ -7,6 +8,7 @@ from src.objects.questionnaire import Questionnaire
 from src.data.data_lists import Data
 
 class Menus:
+    """Menu generator."""
 
     def __init__(self):
         self.questionaire = Questionnaire()
@@ -63,7 +65,8 @@ class Menus:
             return self._credits()
         if user_selection == '9':
             print()
-            print("DÚFAM, ŽE TENTO PROGRAM TI POMOHOL V ROZHODOVANÍ! :)")
+            print("DÚFAM, ŽE TI TENTO PROGRAM POMOHOL V ROZHODOVANÍ! :)")
+            time.sleep(3)
             sys.exit()
         else:
             print(" Vyberaj z možností menu zadaním číslovky 1-8!")
