@@ -9,8 +9,8 @@ class Data:
     answers_lst_dict = []
 
     def __init__(self):
-        self._csv_reader('vol_kal.csv')
-        # self._csv_reader('..\\src\\data\\vol_kal.csv')
+        # self._csv_reader('vol_kal.csv')
+        self._csv_reader('..\\src\\data\\vol_kal.csv')
 
     @classmethod
     def _csv_reader(cls, source):
@@ -107,6 +107,3 @@ class Data:
         except ValueError:
             print("Zadaná hodnota nie je číslo.")
             return self.pick_key(key_name, key_list)
-
-data = Data()
-data.print_results_by_statement()

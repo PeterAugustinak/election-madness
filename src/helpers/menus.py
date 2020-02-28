@@ -57,5 +57,5 @@ class Menus:
     def _credits():
         print()
         print("ELECTION MADNESS")
-        print("verzia: 1.0. (2020/02/28)")
+        print("verzia: 1.0.1. (2020/02/28)")
         print("autor: Peter A.")
