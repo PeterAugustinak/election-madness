@@ -43,7 +43,6 @@ class UserAnswers:
 
     @classmethod
     def _get_user_answer(cls, statement, counter):
-        print()
         user_answer = input(f"{counter} {statement} (a/n/0): ")
         return cls._translate_answer(user_answer)
 
@@ -53,7 +52,7 @@ class UserAnswers:
         if user_answer == 'n': return'Nie'
         if user_answer == '0': return'-'
         else:
-            print('Odpovedaj a, n, alebo 0.')
+            print(' Odpovedaj a, n, alebo 0.')
             return False
 
     def _evaluate_user_answer(self, user_answer, current_statement_position):
@@ -69,15 +68,32 @@ class UserAnswers:
         for party, party_answers in zip(self.parties, self.list_of_answers):
             if user_answer == party_answers[current_statement]:
                 match_lst.append(party)
-                self._add_point_for_party(party)
+        priority_point = self._evaluate_priority_for_current_statement()
+        self._add_points_for_party(match_lst, priority_point)
 
         print(f" ZHODA: {match_lst}")
+        print()
 
-    def _add_point_for_party(self, party):
-        try:
-            self.user_chart[party] += 1
-        except KeyError:
-            self.user_chart[party] = 1
+    def _add_points_for_party(self, match_lst, priority_point):
+        for party in match_lst:
+            try:
+                self.user_chart[party] += (1 + priority_point)
+            except KeyError:
+                self.user_chart[party] = (1 + priority_point)
+
+    @classmethod
+    def _evaluate_priority_for_current_statement(cls):
+        priority = input(" Ako dôležitá je pre vás táto otázka? (1 - menej, 2 - štandardne, 3 - viac): ")
+        return cls._evaluate_priority_answer(priority)
+
+    @classmethod
+    def _evaluate_priority_answer(cls, priority):
+        if priority == '3': return 0.5
+        if priority == '2': return 0.0
+        if priority == '1': return -0.5
+        else:
+            print('  Odpovedaj 1, 2, alebo 3.')
+            return cls._evaluate_priority_for_current_statement()
 
 
 user = UserAnswers()
