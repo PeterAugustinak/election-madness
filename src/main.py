@@ -1,5 +1,5 @@
 # coding=utf-8
-import os
+
 # local library imports
 from helpers.clear_screen import clear_screen
 from helpers.menus import Menus
