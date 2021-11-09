@@ -15,6 +15,9 @@ The tool also provides another handy information, like the list of all parties o
 <I>The tool is available only in Slovak language</I>
 </p>
 
+
+![img.png](img.png)
+
 <h1>How to run? (Windows)</h1>
 <p>pre-condition: Python 3.6 or higher installed</p>
 1. clone this repo<br>
