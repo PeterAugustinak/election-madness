@@ -1,4 +1,7 @@
+# coding=utf-8
 import csv
+import os
+import os.path
 from collections import defaultdict
 
 
@@ -9,8 +12,7 @@ class Data:
     answers_lst_dict = []
 
     def __init__(self):
-        self._csv_reader('vol_kal.csv')
-        # self._csv_reader('..\\src\\data\\vol_kal.csv')
+        self._csv_reader('data\\vol_kal.csv')
 
     @classmethod
     def _csv_reader(cls, source):

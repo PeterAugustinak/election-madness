@@ -1,6 +1,7 @@
+# coding=utf-8
 # local library import
-from src.helpers.clear_screen import clear_screen
-from src.data.data_lists import Data
+from helpers.clear_screen import clear_screen
+from data.data_lists import Data
 
 class Questionnaire:
     """Questionnaire for asking and evaluating user answers for statements."""

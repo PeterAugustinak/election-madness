@@ -1,6 +1,9 @@
+# coding=utf-8
+import os
 # local library imports
-from src.helpers.clear_screen import clear_screen
-from src.helpers.menus import Menus
+from helpers.clear_screen import clear_screen
+from helpers.menus import Menus
+
 
 def main():
     menu = Menus()

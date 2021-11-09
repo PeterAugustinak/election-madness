@@ -3,9 +3,9 @@ import sys
 import time
 
 # local library imports
-from src.helpers.clear_screen import clear_screen
-from src.objects.questionnaire import Questionnaire
-from src.data.data_lists import Data
+from helpers.clear_screen import clear_screen
+from objects.questionnaire import Questionnaire
+from data.data_lists import Data
 
 class Menus:
     """Menu generator."""
@@ -77,4 +77,4 @@ class Menus:
         print()
         print("ELECTION MADNESS")
         print("verzia: 1.0.1. (2020/02/28)")
-        print("autor: Peter A.")
+        print("autor: p-a")
